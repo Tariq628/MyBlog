@@ -1,0 +1,108 @@
+{% extends 'blog/basic.html' %}
+
+
+{% block css %}
+
+.form-box input, textarea{
+width: 50vw;
+padding: 5px 15px;
+margin: 11px 0;
+font-family:var(--font1);
+font-size:20px;
+}
+.contact-form{
+
+}
+
+
+
+
+
+
+
+
+.content-contact{
+margin-top:62px;
+position:relative;
+
+}
+.content-contact::after{
+content:"";
+background-image: url('/../static/blog/11.svg');
+position:absolute;
+top:0;
+width: 100%;
+height:inherit;
+z-index:-1;
+opacity: 0.15;
+}
+.center{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.footer{
+    margin-top:100px;
+}
+
+@media screen and (max-width: 580px){
+    .form-box input, textarea{
+        width: 54vw;
+        padding: 3px 3px;
+        margin: 5px 0;
+        font-family: var(--font2);
+        font-size: 13px;
+        }
+}
+
+
+{% endblock css %}
+
+
+{% block body %}
+
+
+<div class="max-width-2 m-auto">
+    <hr>
+</div>
+
+<div class="content-contact font1 m-auto">
+    <div class="center max-width-2 m-auto">
+        <h2>Contact For Us</h2>
+
+        <form class="contact-form" action="/blog/contact/" method="POST">{% csrf_token %}
+            <div class="form-box">
+                <input name="name" type="text" placeholder="Enter Your Name">
+            </div>
+            <div class="form-box">
+                <input name="phone" type="text" placeholder="Enter Your Phone Number">
+            </div>
+            <div class="form-box">
+                <input name="email" type="email" placeholder="Enter Your Email">
+            </div>
+            <div class="form-box">
+                <textarea name="textarea" placeholder="How May We Help You" name="" id="" cols="30"
+                    rows="10"></textarea>
+            </div>
+            <div class="form-box">
+                <button type="submit" class="nav-btn">Button</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+
+{% endblock body %}
+
+
+{% block js %}
+<script>
+{% if thank %}
+alert("Thanks for Ordering with us Your Order is- use it to track your order Order Tracker")
+location.href = "/blog/contact"
+{% endif %}
+</script>
+{% endblock js %}

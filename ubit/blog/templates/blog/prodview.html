@@ -1,0 +1,34 @@
+{% extends 'blog/basic.html' %}
+
+
+{% block css %}
+
+.row-btn{
+  display:flex;
+  justify-content:center;
+}
+{% endblock css %}
+
+
+    {% block body %}
+
+    <div class="my-4 container">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="/media/{{product.image}}" width="320px" height="300px">
+          <div class="row-btn">
+          </div>
+        </div>
+        
+
+        <div class="mt-5 col-md-8">
+          <h5>{{product.heading}}</h5>
+          <p><b></b>{{product.content}}</p>
+          <p>{{product.desc}}</p>
+        </div>
+
+
+      </div>
+    </div>
+
+  {% endblock body %}
